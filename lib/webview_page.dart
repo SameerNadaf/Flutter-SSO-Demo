@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'sso_implementation/sso_script.dart';
 
 class WebViewPage extends StatefulWidget {
   final String url;
@@ -35,6 +36,8 @@ class _WebViewPageState extends State<WebViewPage> {
                 _isLoading = false;
               });
             }
+            // Inject SSO script when page finishes loading
+            _controller.runJavaScript(SSOScript.script);
           },
           onWebResourceError: (WebResourceError error) {
              debugPrint('WebView error: ${error.description}');
@@ -53,6 +56,16 @@ class _WebViewPageState extends State<WebViewPage> {
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: () => _controller.reload(),
+          ),
+          // Debug button to force inject script
+          IconButton(
+            icon: const Icon(Icons.auto_fix_high),
+            onPressed: () {
+               _controller.runJavaScript(SSOScript.script);
+               ScaffoldMessenger.of(context).showSnackBar(
+                 const SnackBar(content: Text('SSO Script Injected Manually')),
+               );
+            },
           ),
         ],
       ),

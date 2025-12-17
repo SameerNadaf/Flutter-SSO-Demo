@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
   final List<Portal> portals = [
     const Portal(
       name: 'Outlook',
-      url: 'https://outlook.live.com/',
+      url: 'https://outlook.office.com/mail/',
       icon: Icons.email,
       color: Colors.blue,
     ),
