@@ -2,8 +2,8 @@ class SSOScript {
   static const String script = '''
     (function() {
       const CREDENTIALS = {
-        email: "sameer.nadaf@cachatto.com",
-        password: "3htaYN7D73Na"
+        email: "dummyemail@gmail.com",
+        password: "password123"
       };
       
       console.log("SSO Script Injected for " + window.location.hostname);
