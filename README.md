@@ -1,4 +1,4 @@
-# SSO_demo
+# AutoLogin_demo
 
 A new Flutter project.
 
